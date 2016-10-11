@@ -6,3 +6,4 @@ def fact(n):
         return 1
     return n * fact(n - 1)
 
+print(fact(5))
