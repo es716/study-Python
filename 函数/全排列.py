@@ -13,10 +13,11 @@ num = input("输入阶乘数：")
 def swap(a,b):
     print(argc)
     
-def recursive(n,one,two,tree):
+def recursive(n,one,two):
     if n == 1:
         return n
     else:
+        for 
         recursive(n-1,one,two)
     
 #尾递归
