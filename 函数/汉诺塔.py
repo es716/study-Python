@@ -2,33 +2,6 @@
 # -*- coding: utf-8 -*-
 
 #http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431756044276a15558a759ec43de8e30eb0ed169fb11000
-#递归函数
-#容易导致 栈溢出
-print("递归函数")
-
-def fact(n):
-    if n == 1:
-        return 1
-    return n * fact(n - 1)
-
-print(fact(5))
-print(fact(10))
-
-#递归函数--尾递归优化
-#没有进行尾递归优化的语言还是会 导致 栈溢出
-#python也没有进行尾递归优化
-print("递归函数--尾递归优化")
-
-def fact1(n):
-    return fact_iter(n, 1)
-
-def fact_iter(num,product):
-    if num == 1:
-        return product
-    return fact_iter(num - 1, num * product)
-print(fact1(5))
-print(fact1(10))
-
 #递归函数--汉诺塔 问题
 '''
 算法：
@@ -50,8 +23,11 @@ def hanoi(*,n,buf=1,fromWhere='A',dependOn='B',toWhere='C'):
         buf = move(buf = buf,n=n,fromWhere=fromWhere,toWhere=toWhere)
 
     else:
+        #将 n-1个盘子由 A 移动到 B 借助 C
         buf = hanoi(buf = buf,n=n-1, fromWhere=fromWhere, dependOn=toWhere, toWhere=dependOn)
+        #将 第n个盘子由 A 移动到C
         buf = move(buf = buf, n=n,fromWhere=fromWhere,toWhere=toWhere)
+        #将 n-1个盘子由 B 移动到 C 借助 A
         buf = hanoi(buf = buf,n=n-1, fromWhere=dependOn, dependOn=fromWhere, toWhere=toWhere)
     return buf
   
