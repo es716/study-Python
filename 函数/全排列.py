@@ -10,15 +10,28 @@ num = input("输入阶乘数：")
 
 #递归
 
-def swap(a,b):
-    print(argc)
+def quanPaiLie(numbers):
+    srcList = list( range(numbers) );
+    srcList.append(numbers)
+    print(srcList);
+    print("全排列：");
+    recursive(srcList,numbers)
     
-def recursive(n,one,two):
-    if n == 1:
-        return n
+def swap(srcList,swapNumA,swapNumB):
+    swap = srcList[swapNumA];
+    srcList[swapNumA] = srcList[swapNumB];
+    srcList[swapNumB] = swap;
+    return srcList
+    
+def recursive(AllList,num):
+    #遍历树
+    if len(AllList) == 1:
+        print("%3d" % (n))
+        return 1;
     else:
-        for 
-        recursive(n-1,one,two)
+        for num in AllList:
+            recursive(AllList,num+1)
+            
     
 #尾递归
 def jiecheng(n):
@@ -29,9 +42,11 @@ def jc(n,res = 1):
         return res*n
     else:
         return jc(n-1,res*n)
-
+'''
 print("尾递归函数--全排列")
-print(recursive(int(num)))
+print( quanPaiLie( list( range(3) ) ) )
 
 print("递归函数--全排列")
 print(jiecheng(int(num)))
+'''
+quanPaiLie(int(num))
